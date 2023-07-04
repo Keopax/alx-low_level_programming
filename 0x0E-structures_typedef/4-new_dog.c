@@ -1,7 +1,5 @@
 #include <stdlib.h>
 #include "dog.h"
-/**by noguia*/
-
 
 /**
  * _strlen - returns the length of a string
@@ -9,7 +7,6 @@
  *
  * Return: the length of the string
  */
-
 int _strlen(char *s)
 {
 	int i;
@@ -33,7 +30,6 @@ int _strlen(char *s)
  *
  * Return: the pointer to dest
  */
-
 char *_strcpy(char *dest, char *src)
 {
 	int len, i;
@@ -62,7 +58,6 @@ char *_strcpy(char *dest, char *src)
  *
  * Return: pointer to the new dog (Success), NULL otherwise
  */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog;

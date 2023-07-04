@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include "dog.h"
 
-/** by noguia */
-
-
 /**
  * print_dog - prints a struct dog
  * @d: struct dog to print

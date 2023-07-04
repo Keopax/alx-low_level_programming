@@ -3,7 +3,6 @@
 
 /**
  * free_dog - frees memory allocated for a struct dog
- * by noguia
  * @d: struct dog to free
  */
 void free_dog(dog_t *d)
