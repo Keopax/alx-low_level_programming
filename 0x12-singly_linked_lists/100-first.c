@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-/** by noguia */
-
 void first(void) __attribute__ ((constructor));
 
 /**

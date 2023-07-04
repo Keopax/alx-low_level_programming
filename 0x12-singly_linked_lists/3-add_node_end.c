@@ -1,66 +1,41 @@
+#include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: string to evaluate
- *
- * Return: the length of the string
- */
-/** by noguia */
-
-int _strlen(const char *s)
-{
-	int i;
-
-	i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-
-	return (i);
-}
-
-/**
- * add_node_end - adds a new node at the end of a list_t list
- * @head: double pointer to the head of the list
- * @str: string to be added to the list
+ * add_node_end - adds a new node at the end of a linked list
+ * @head: double pointer to the list_t list
+ * @str: string to put in the new node
  *
  * Return: address of the new element, or NULL if it failed
- *
- * Description: This function creates a new node with a copy of the string
- * str, and adds it to the end of the list pointed to by 'head'. If 'head'
- * is NULL, or memory allocation fails, the function returns NULL. The string
- * 'str' is duplicated using the 'strdup' function. The function returns a
- * pointer to the new node.
  */
-/** by noguia */ 
-
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *temp;
+	list_t *new;
+	list_t *temp = *head;
+	unsigned int len = 0;
 
-	if (head == NULL || str == NULL)
+	while (str[len])
+		len++;
+
+	new = malloc(sizeof(list_t));
+	if (!new)
 		return (NULL);
-	new_node = malloc(sizeof(list_t));
-	if (!new_node)
-		return (NULL);
-	new_node->str = strdup(str);
-	if (!new_node->str)
+
+	new->str = strdup(str);
+	new->len = len;
+	new->next = NULL;
+
+	if (*head == NULL)
 	{
-		free(new_node);
-		return (NULL);
+		*head = new;
+		return (new);
 	}
-	new_node->len = _strlen(str);
-	if (!*head)
-		*head = new_node;
-	else
-	{
-		temp = *head;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = new_node;
-	}
-	return (new_node);
+
+	while (temp->next)
+		temp = temp->next;
+
+	temp->next = new;
+
+	return (new);
 }
